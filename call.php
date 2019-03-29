@@ -5,7 +5,7 @@ function make_call($ext,$msg)
 
   	shell_exec("./script.bash -a $ext -b $msg");
 
-        $text = "Llamada realizada con exito.  ";
+        $text = "Succesfull call  ";
 	
 	return $text;
 
