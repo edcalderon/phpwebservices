@@ -47,6 +47,24 @@ $client = new nusoap_client("http://localhost/phpwebservices/service.php?wsdl");
 	}
    ?>
   </h3>
+	
+   <h4>Please wait almost 30 seconds to make and other call, it work with tears, thanks.</h4>
+   <div id='seconds-counter'> </div>
+
+  <script>
+    var seconds = 0;
+    var el = document.getElementById('seconds-counter');
+    function incrementSeconds() {
+      seconds += 1;
+      el.innerText = "You have been here for " + seconds + " seconds.";
+    }
+    var cancel = setInterval(incrementSeconds, 1000);
+  </script>
+
+
+	
+	
+	
 </div>
 </body>
 </html>
