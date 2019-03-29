@@ -1,7 +1,7 @@
 <?php
 require 'lib/nusoap.php';
 
-$client = new nusoap_client("http://localhost/phpwebservice/service.php?wsdl"); // Create a instance for nusoap client
+$client = new nusoap_client("http://localhost/phpwebservices/service.php?wsdl"); // Create a instance for nusoap client
 
 ?>
 <!DOCTYPE html>
