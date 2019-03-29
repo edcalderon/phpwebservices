@@ -48,7 +48,7 @@ $client = new nusoap_client("http://localhost/phpwebservices/service.php?wsdl");
    ?>
   </h3>
 	
-   <h4>Please wait almost 30 seconds to make and other call, it work with tears, thanks.</h4>
+   <h4>Please wait almost 30 seconds between calls, it work with tears, thanks.</h4>
    <div id='seconds-counter'> </div>
 
   <script>
