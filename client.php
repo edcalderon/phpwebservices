@@ -1,13 +1,13 @@
 <?php
 require 'lib/nusoap.php';
 
-$client = new nusoap_client("http://localhost/phpwebservices/service.php?wsdl"); // Create a instance for nusoap client
+$client = new nusoap_client("http://localhost/phpwebservice2/service.php?wsdl"); // Create a instance for nusoap client
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>SOAP Web Service Client Side Demo</title>
+  <title>SOAP Web Service Client Side Demo for a TTS call</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -17,11 +17,15 @@ $client = new nusoap_client("http://localhost/phpwebservices/service.php?wsdl");
 <body>
 
 <div class="container">
-  <h2>SOAP Web Service Client Side Demo</h2>
+  <h2>SOAP Web Service Client Side Demo for a TTS call</h2>
   <form class="form-inline" action="" method="POST">
     <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" name="name" class="form-control"  placeholder="Enter Product Name" required/>
+      <label for="name">Extention:</label>
+      <input type="text" name="ext" class="form-control"  placeholder="Enter Extension number" />
+    </div>
+    <div class="form-group">
+      <label for="msg">Message:</label>
+      <input type="text" name="msg" class="form-control"  placeholder="Enter Message" />
     </div>
     <button type="submit" name="submit" class="btn btn-default">Submit</button>
   </form>
@@ -30,14 +34,16 @@ $client = new nusoap_client("http://localhost/phpwebservices/service.php?wsdl");
   <?php
 	if(isset($_POST['submit']))
 	{
-		$name = $_POST['name'];
+		$ext = $_POST['ext'];
+    $msg = $_POST['msg'];
+    
 
-		$response = $client->call('get_price',array("name"=>$name));
+		$response = $client->call('make_call',array("ext"=>$ext,"msg"=>$msg));
 
 		if(empty($response))
-			echo "Price of that product is not available";
+			echo "Call not available";
 		else
-			echo $response;
+			echo $response . "a la extension: " . $ext . " Con el mensaje: " . $msg;
 	}
    ?>
   </h3>
