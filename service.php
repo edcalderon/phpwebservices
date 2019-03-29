@@ -1,6 +1,6 @@
 <?php
 require 'lib/nusoap.php';
-require 'data.php';
+require 'call.php';
 
 $ns  = "http://localhost/phpwebservices";
 $server = new nusoap_server(); // Create a instance for nusoap server
