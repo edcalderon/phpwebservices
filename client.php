@@ -43,7 +43,7 @@ $client = new nusoap_client("http://localhost/phpwebservices/service.php?wsdl");
 		if(empty($response))
 			echo "Call not available";
 		else
-			echo $response . "a la extension: " . $ext . " Con el mensaje: " . $msg;
+			echo $response . "to the extension: " . $ext . " whit the message: " . $msg;
 	}
    ?>
   </h3>
