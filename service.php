@@ -2,7 +2,7 @@
 require 'lib/nusoap.php';
 require 'data.php';
 
-$ns  = "http://localhost/phpwebservices/";
+$ns  = "http://localhost/phpwebservices";
 $server = new nusoap_server(); // Create a instance for nusoap server
 
 $server->configureWSDL("nuSOAP Web Service Client Side for a TTS call",$ns,"urn:demo"); // Configure WSDL file
