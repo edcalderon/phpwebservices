@@ -2,14 +2,16 @@
 require 'lib/nusoap.php';
 require 'data.php';
 
+$ns  = "http://localhost/phpwebservice2/";
 $server = new nusoap_server(); // Create a instance for nusoap server
 
-$server->configureWSDL("Soap Demo","urn:soapdemo"); // Configure WSDL file
+$server->configureWSDL("nuSOAP Web Service Client Side for a TTS call",$ns,"urn:demo"); // Configure WSDL file
+$server->wsdl->schemaTargetNamespace=$ns;
 
 $server->register(
-	"get_price", // name of function
-	array("name"=>"xsd:string"),  // inputs
-	array("return"=>"xsd:integer")   // outputs
+	"make_call", // name of function
+	array("ext"=>"xsd:integer","msg"=>"xsd:string"),  // inputs
+	array("return"=>"xsd:string")   // outputs
 );
 
 $server->service(file_get_contents("php://input"));
